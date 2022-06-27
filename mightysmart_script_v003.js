@@ -15,9 +15,6 @@ $(document).ready(function() {
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
     
-        // Initialize the FirebaseUI Widget using Firebase.
-        // var ui = new firebaseui.auth.AuthUI(firebase.auth());
-    
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 $(".logoutdropdown").removeClass('hide');
@@ -107,16 +104,7 @@ $(document).ready(function() {
                     console.log(errorCode);
                 });
         })
-    
-        // ui.start('#firebaseui-auth-container', {
-        //     signInOptions: [
-        //         // List of OAuth providers supported.
-        //         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        //         firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-        //         firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-        //     ],
-        //     // Other config options...
-        // });
+
         $("#signout").click(function() {
             firebase.auth().signOut().then(() => {
                 localStorage.removeItem("useremail");
