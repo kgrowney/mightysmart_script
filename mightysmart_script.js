@@ -1,4 +1,3 @@
-Webflow.push(function() {
 $(document).ready(function() {
     const userID = "zWmzYfgsjdPqG1UXTz9ZhZjJC4v1";
 
@@ -429,6 +428,4 @@ $('.skills-section').on('click', function(e) {
     if (e.target !== this)
         return;
     $("#skillsSection").addClass('hide');
-});
-
 });
