@@ -1,6 +1,22 @@
-
+$(document).ready(function() {
+    
+        const firebaseConfig = {
+            apiKey: "AIzaSyDOBc9iKIXam9FENPPMQQyrs36eCtCjewA",
+            authDomain: "produck-brief.firebaseapp.com",
+            databaseURL: "https://produck-brief.firebaseio.com",
+            projectId: "produck-brief",
+            storageBucket: "produck-brief.appspot.com",
+            messagingSenderId: "1016070241292",
+            appId: "1:1016070241292:web:51ef9a209cab6c2f074229",
+            measurementId: "G-FBGNXHGX1Y"
+        };
+    
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    
         // Initialize the FirebaseUI Widget using Firebase.
-        // var ui = new firebaseui.auth.AuthUI(firebase.auth());
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
     
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
@@ -92,15 +108,15 @@
                 });
         })
     
-        // ui.start('#firebaseui-auth-container', {
-        //     signInOptions: [
-        //         // List of OAuth providers supported.
-        //         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        //         firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-        //         firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-        //     ],
-        //     // Other config options...
-        // });
+        ui.start('#firebaseui-auth-container', {
+            signInOptions: [
+                // List of OAuth providers supported.
+                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+                firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+            ],
+            // Other config options...
+        });
         $("#signout").click(function() {
             firebase.auth().signOut().then(() => {
                 localStorage.removeItem("useremail");
@@ -260,7 +276,6 @@
         callback((await resp.json()) || []);
     }
 
-$(document).ready(function() {
     getUserInfo(userID, function afterResult(data) {
 
         //console.log(data);
