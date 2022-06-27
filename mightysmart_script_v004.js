@@ -114,6 +114,19 @@ $(document).ready(function() {
                 location.reload();
             }).catch((error) => { console.log("error here") });
         })
+
+        $(".user-profile-img").on("click", function() {
+            if (!firebase.auth().currentUser) {
+                var e = $(".design-button a.skillitem").first(),
+                    skilldescription = $(e).find(".skilldescription").text(),
+                    usertag = $(e).find(".usertags").text(),
+                    skillcounter = $(e).find(".skills-count").text();
+                $(".tags-popu-content .skill-name").text(usertag);
+                $(".tags-popu-content .skill-desription-box").html(skilldescription);
+                $(".tags-popu-content .skill-counter").html(skillcounter);
+                $("#skillsSection").removeClass("hide");
+            }
+        });
     
         $(document).on('click', ".skillitem", function() {
             $("#skillsSection").removeClass('hide');
