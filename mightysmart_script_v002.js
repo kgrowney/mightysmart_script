@@ -16,7 +16,7 @@ $(document).ready(function() {
         firebase.analytics();
     
         // Initialize the FirebaseUI Widget using Firebase.
-        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+        // var ui = new firebaseui.auth.AuthUI(firebase.auth());
     
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
@@ -108,15 +108,15 @@ $(document).ready(function() {
                 });
         })
     
-        ui.start('#firebaseui-auth-container', {
-            signInOptions: [
-                // List of OAuth providers supported.
-                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-                firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-                firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-            ],
-            // Other config options...
-        });
+        // ui.start('#firebaseui-auth-container', {
+        //     signInOptions: [
+        //         // List of OAuth providers supported.
+        //         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        //         firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        //         firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+        //     ],
+        //     // Other config options...
+        // });
         $("#signout").click(function() {
             firebase.auth().signOut().then(() => {
                 localStorage.removeItem("useremail");
