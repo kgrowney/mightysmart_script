@@ -131,7 +131,7 @@ $(document).ready(function() {
         $(document).on('click', ".skillitem", function() {
             $("#skillsSection").removeClass('hide');
             var user = firebase.auth().currentUser;
-            if (user) { return false; } else {
+            // if (user) { return false; } else {
                 var skilldescription = $(this).find(".skilldescription").text();
                 var usertags = $(this).find('.usertags').text();
                 var userscount = $(this).find('.skills-count').text();
@@ -189,7 +189,7 @@ $(document).ready(function() {
                     }
                 }
     
-            }
+            // }
         })
     
         $(document).on("click", ".button-agree", function() {
