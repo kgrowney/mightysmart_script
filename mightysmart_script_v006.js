@@ -130,7 +130,7 @@ $(document).ready(function() {
     
         $(document).on('click', ".skillitem", function() {
             $("#skillsSection").removeClass('hide');
-            var user = firebase.auth().currentUser;
+            // var user = firebase.auth().currentUser;
             // if (user) { return false; } else {
                 var skilldescription = $(this).find(".skilldescription").text();
                 var usertags = $(this).find('.usertags').text();
@@ -143,7 +143,7 @@ $(document).ready(function() {
     
                 $(".skill-tags-slides.loggedin").html("");
                 var data = localStorage.getItem('userdata');
-    
+                data = JSON.parse(data);
                 if ((data.skills) && data.skills.length > 0) {
                     let i = 0;
                     for (const skill of data.skills) {
