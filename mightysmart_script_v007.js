@@ -147,7 +147,7 @@ $(document).ready(function() {
                 if ((data.skills) && data.skills.length > 0) {
                     let i = 0;
                     for (const skill of data.skills) {
-                        if (skill != "" && (skill.skillTag).trim() == usertags.trim()) {
+                        if (skill != "" && (skill.skillTag).trim() == (usertags.trim().replace('#', ""))) {
                             var endrosements = (skill.endorsements && skill.endorsements.length > 0) ? skill.endorsements.length : 0;
     
                             $(".usertagsample .skilldescription").text(skill.skillSummary);
