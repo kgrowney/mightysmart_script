@@ -182,7 +182,7 @@ $(document).ready(function() {
     
                             var userskills = $(".usertagsample").html();
                             // console.log(userskills);
-                            $("#skillBox").append(userskills);
+                            // $("#skillBox").append(userskills);
     
                             i++;
                         }
