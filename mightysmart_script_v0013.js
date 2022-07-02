@@ -169,11 +169,12 @@ $(document).ready(function() {
                                         console.log(skilltag.endorsee);
                                         console.log("This tag is already endorsed.");
                                         $(".success-message, .button-agree").css('background-color', data.primaryColor);
-                                        $(skilltagsitems).find(".button-agree").attr('data-skilltagged', userId);
+                                        $(skilltagsitems).find(".button-agree").attr("data-skilltagged", userId);
                                         $(skilltagsitems).find(".button-agree .social-heading").text('Endorsed SkillTag');
                                     }
                                 }
                             }
+
                             $(skilltagsitems).find(".button-agree").attr('data-counter', endrosements);
                             $(skilltagsitems).find(".skill-counter").html("(" + endrosements + ")");
     
