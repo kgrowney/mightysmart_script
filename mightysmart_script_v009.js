@@ -139,7 +139,7 @@ $(document).ready(function() {
                 $(".tags-popu-content .skill-desription-box").html(skilldescription);
                 $(".tags-popu-content .skill-counter").html(userscount);
     
-                $("#skillBox").html("");
+                // $("#skillBox").html("");
     
                 $(".skill-tags-slides.loggedin").html("");
                 var data = localStorage.getItem('userdata');
