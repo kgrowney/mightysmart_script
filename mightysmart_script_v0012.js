@@ -184,8 +184,8 @@ $(document).ready(function() {
                             // console.log(userskills);
                             // $("#skillBox").append(userskills);
     
-                            i++;
                         }
+                        i++;
                     }
                 }
     
