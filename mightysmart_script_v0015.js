@@ -254,7 +254,8 @@ $(document).ready(function() {
                         console.log(error);
 
                     } else {
-                        firebase.database().ref("users/"+userID+"/skills/" + skillindex).update({ tagCounter: parseInt(endorsementid) + 1 }, (error) => {
+                        var endorsements_count = parseInt(endorsementid) + 1
+                        firebase.database().ref("users/"+userID+"/skills/" + skillindex).update({ tagCounter: endorsements_count }, (error) => {
                             if (error) {
                     
                                 console.log(error);
@@ -290,7 +291,7 @@ $(document).ready(function() {
                                 });
 
                                 console.log("tag conter updated");
-                                $(this).closest(".social-logins").find(".skill-counter").html("("+parseInt(endorsementid) + 1 +")");
+                                $(this).closest(".social-logins").find(".skill-counter").html("("+endorsements_count+")");
                                 $(this).closest(".skill-tagged-desc").addClass("hide");
                                 $(this).closest(".social-logins").find(".tagged-success-msg").removeClass("hide");
 
