@@ -247,14 +247,47 @@ $(document).ready(function() {
                 ref.child(endorsementid).set(dataset, (error) => {
                     if (error) {
                         console.log(error);
+
                     } else {
                         firebase.database().ref("users/"+userID+"/skills/" + skillindex).update({ tagCounter: parseInt(endorsementid) + 1 }, (error) => {
                             if (error) {
+                    
                                 console.log(error);
                             } else {
+                                getUserInfo(userID, function afterResult(data) {
+
+                                    //console.log(data);
+                                    localStorage.setItem("userdata", JSON.stringify(data));
+
+                                    $("#skillBox").html("");
+                                    if ((data.skills) && data.skills.length > 0) {
+                                        let i = 0;
+                                        for (const skill of data.skills) {
+                                            if (skill != "" && skill != null) {
+                                                var endrosements = 0;
+                                                if ((skill.endorsements) && skill.endorsements.length > 0) {
+                                                    for (const endorse of skill.endorsements) {
+                                                        if (endorse != "" && endorse != null) {
+                                                            endrosements++;
+                                                        }
+                                                    }
+                                                }
+                                                $(".usertagsample .skilldescription").text(skill.skillSummary);
+                                                $(".usertagsample .usertags").text("#" + skill.skillTag);
+                                                $(".usertagsample .skills-count").html("(" + endrosements + ")");
+                                                var userskills = $(".usertagsample").html();
+                                                $("#skillBox").append(userskills);
+                                                i++;
+                                            }
+                                        }
+                                    }
+        
+                                });
+
                                 console.log("tag conter updated");
                                 $(this).closest(".skill-tagged-desc").addClass("hide");
                                 $(this).closest(".social-logins").find(".tagged-success-msg").removeClass("hide");
+
                             }
                         })
                     }
