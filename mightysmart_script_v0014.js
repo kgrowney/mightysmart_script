@@ -163,12 +163,16 @@ $(document).ready(function() {
                             var skilltags = skill.endorsements;
                             var userId = localStorage.getItem('userId');
                             console.log(userId);
+
+                            $(skilltagsitems).find(".button-agree").removeAttr("data-skilltagged");
+                            $(skilltagsitems).find(".button-agree .social-heading").text('Endorse SkillTag');
                             if (skilltags) {
                                 for (const skilltag of skilltags) {
                                     if (skilltag != null && skilltag.endorsee == userId) {
                                         console.log(skilltag.endorsee);
                                         console.log("This tag is already endorsed.");
                                         $(".success-message, .button-agree").css('background-color', data.primaryColor);
+                                        
                                         $(skilltagsitems).find(".button-agree").attr("data-skilltagged", userId);
                                         $(skilltagsitems).find(".button-agree .social-heading").text('Endorsed SkillTag');
                                     }
@@ -286,6 +290,7 @@ $(document).ready(function() {
                                 });
 
                                 console.log("tag conter updated");
+                                $(this).closest(".social-logins").find(".skill-counter").html("("+parseInt(endorsementid) + 1 +")");
                                 $(this).closest(".skill-tagged-desc").addClass("hide");
                                 $(this).closest(".social-logins").find(".tagged-success-msg").removeClass("hide");
 
